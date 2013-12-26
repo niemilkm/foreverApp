@@ -1,0 +1,1 @@
+Note = new Meteor.Collections('notes');
