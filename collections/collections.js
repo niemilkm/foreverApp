@@ -1,1 +1,1 @@
-Note = new Meteor.Collections('notes');
+Notes = new Meteor.Collection('note');
