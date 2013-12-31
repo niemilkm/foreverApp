@@ -3,19 +3,13 @@
 
 	<div id="container" style="width:500px">
 
-		<div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+		<div id="menu" style="height:200px;width:100px;float:left;">
 			<b>Menu</b><br>
-			HTML<br>
-			CSS<br>
-			JavaScript
+			{{> showFolders}}
 		</div>
 
 		<div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
 			{{> showNotes}}
-		</div>
-
-		<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
-			Copyright � W3Schools.com
 		</div>
 
 	</div>
@@ -23,13 +17,24 @@
 </body>
 
 
+<template name="showFolders">
+		{{#each eachFolder}}
+			{{> folderList}}
+    {{/each}}
+</template>
+
+<template name="folderList">
+	{{folder}}<br>
+</template>
+
 <template name="showNotes">
-	Test Code
-			{{#each eachNote}}
-				{{> noteList}}
-	    {{/each}}
+		{{#each eachNote}}
+			{{> noteList}}
+    {{/each}}
 </template>
 
 <template name="noteList">
-	Category: {{category}}
+	Folder: {{folder}}
+	Section: {{section}}
+	Note: {{note}}
 </template>
