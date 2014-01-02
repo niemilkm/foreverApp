@@ -17,10 +17,7 @@
   			{{> showFoldersSelector}}
   		</select>
   		Section:
-  		<select id="selectSection">
-  			<option value="sectionAll" selected="selected">All</option>
-  			{{> showSectionsSelector}}
-  		</select>
+  		{{> getSectionOptions}}
   		<br><br>
 
   		{{> newNote}}
@@ -63,6 +60,13 @@
 	<option value="{{folder}}">{{folder}}</option>
 </template>
 
+
+<template name="getSectionOptions">
+	<select id="selectSection" class="selectSection">
+		<option value="sectionAll" selected="selected">All</option>
+		{{> showSectionsSelector}}
+	</select>
+ </template>
 
 <template name="showSectionsSelector">
 		{{#each eachSection}}
