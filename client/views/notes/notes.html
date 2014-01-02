@@ -1,15 +1,40 @@
 
+
+
 <body>
 
-	<div id="container" style="width:500px">
+	<div id="container" style="width:1300px">
 
 		<div id="menu" style="height:200px;width:100px;float:left;">
 			<b>Menu</b><br>
-			{{> showFolders}}
+			{{> showFoldersMenu}}
 		</div>
 
-		<div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
-			{{> showNotes}}
+		<div id="content" style="background-color:#EEEEEE;height:400px;width:1200px;float:left;">
+			Folder:
+			<select id="selectFolder">
+				<option value="folderAll" selected="selected">All</option>
+  			{{> showFoldersSelector}}
+  		</select>
+  		Section:
+  		<select id="selectSection">
+  			<option value="sectionAll" selected="selected">All</option>
+  			{{> showSectionsSelector}}
+  		</select>
+  		<br><br>
+
+  		{{> newNote}}
+
+  		<br><br>
+  		<table border="1">
+  			<tr>
+  				<th>Delete</th>
+  				<th>Folder</th>
+  				<th>Section</th>
+  				<th>Note</th>
+  			</tr>
+				{{> showNotes}}
+			</table>
 		</div>
 
 	</div>
@@ -17,15 +42,46 @@
 </body>
 
 
-<template name="showFolders">
+<template name="showFoldersMenu">
 		{{#each eachFolder}}
-			{{> folderList}}
+			{{> folderListMenu}}
     {{/each}}
 </template>
 
-<template name="folderList">
+<template name="folderListMenu">
 	{{folder}}<br>
 </template>
+
+
+<template name="showFoldersSelector">
+		{{#each eachFolder}}
+			{{> folderListSelector}}
+    {{/each}}
+</template>
+
+<template name="folderListSelector">
+	<option value="{{folder}}">{{folder}}</option>
+</template>
+
+
+<template name="showSectionsSelector">
+		{{#each eachSection}}
+			{{> sectionListSelector}}
+    {{/each}}
+</template>
+
+<template name="sectionListSelector">
+	<option value="{{section}}">{{section}}</option>
+</template>
+
+
+<template name="newNote">
+	Folder: <input type="text" id="addFolder" size="40"><br>
+	Section: <input type="text" id="addSection" size="40"><br>
+	Note: <input type="text" id="addNote" size="100"><br>
+	<input type="button" class="addItem" value="Add Note">
+</template>
+
 
 <template name="showNotes">
 		{{#each eachNote}}
@@ -34,7 +90,10 @@
 </template>
 
 <template name="noteList">
-	Folder: {{folder}}
-	Section: {{section}}
-	Note: {{note}}
+	<tr>
+		<td><button type="button">X</button></td>
+		<td>{{folder}}</td>
+		<td>{{section}}</td>
+		<td>{{note}}</td>
+	</tr>
 </template>
