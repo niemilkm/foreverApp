@@ -6,4 +6,9 @@ if (Meteor.isServer) {
         Notes.insert({folder: "Other", section: "Other", note: "My First Note"});
   }
   });
+
+  Meteor.publish("Notes", function(sectionSelected)
+  {
+  	Notes.find({section: sectionSelected})  
+	});
 }

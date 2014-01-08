@@ -49,27 +49,17 @@
 
   Template.getSectionOptions.events =
   {
-  	'change .selectSection': function()
+  	'change .selectSection': function(evt)
   	{
-  		var folderSelected = document.getElementById("selectFolder");
-	  	var sectionSelected = document.getElementById("selectSection");
-	  	if ((folderSelected == "folderAll" && sectionSelected == "sectionAll") || folderSelected == null || sectionSelected == null)
-	  	{
-	  		return Notes.find({}, {sort: {folder:1, section:1, note:1}});
-	  	}
-	  	else if (folderSelected != "folderAll" && sectionSelected != "sectionAll" )
-	  	{
-	  		return Notes.find({folder: folderSelected, section: sectionSelected}, {sort: {folder:1, section:1, note:1}});
-	  	}
-	  	else if (folderSelected != "folderAll")
-	  	{
-	  		return Notes.find({folder: folderSelected}, {sort: {folder:1, section:1, note:1}});
-	  	}
-	  	else
-	  	{
-	  		return Notes.find({section: sectionSelected}, {sort: {folder:1, section:1, note:1}});
-	  	}
+  		//var folderSelected = document.getElementById("selectFolder");
+	  	//var sectionSelected = document.getElementById("selectSection");
+	  	Session.set("sectionSelected", evt.currentTarget.value);
   	}
   };
+
+  Meteor.autosubscribe(function ()
+  {
+    Meteor.subscribe("Notes", Session.get("sectionSelected"));
+  });
 
 
