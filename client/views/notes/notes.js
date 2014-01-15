@@ -23,17 +23,17 @@
 
   Template.showFoldersMenu.eachFolder = function ()
   {
-  	return Notes.find({}, {sort: {folder:1}});
+  	return FoldersDB.find({}, {sort: {folderName:1}});
   };
 
  Template.showFoldersSelector.eachFolder = function ()
   {
-  	return Notes.find({}, {sort: {folder:1}});
+  	return FoldersDB.find({}, {sort: {folderName:1}});
   };
 
   Template.showSectionsSelector.eachSection = function ()
   {
-  	return Notes.find({}, {sort: {section:1}});
+  	return SectionsDB.find({}, {sort: {sectionName:1}});
   };
 
   Template.newNote.events =
@@ -43,7 +43,25 @@
   		var newFolder = document.getElementById("addFolder").value.trim();
   		var newSection = document.getElementById("addSection").value.trim();
   		var newNote = document.getElementById("addNote").value.trim();
-  		Notes.insert({folder:newFolder, section:newSection, note:newNote });
+      var folderNameCount = FoldersDB.find( {folderName: {$in: [newFolder] } }).count();
+      if (folderNameCount > 0)
+      {
+        var sectionNameCount = SectionsDB.find( {sectionName: {$in: [newSection] } }).count();
+        if (sectionNameCount > 0)
+        {
+        }
+        else
+        {
+          SectionsDB.insert({sectionName:newSection});
+        }
+      }
+      else
+      {
+        FoldersDB.insert({folderName:newFolder});
+        SectionsDB.insert({sectionName:newSection});
+      }
+      
+      Notes.insert({folder:newFolder, section:newSection, note:newNote });
   	}
   };
 
