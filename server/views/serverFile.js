@@ -7,8 +7,4 @@ if (Meteor.isServer) {
   }
   });
 
-  Meteor.publish("Notes", function(sectionSelected)
-  {
-  	Notes.find({section: sectionSelected})  
-	});
 }

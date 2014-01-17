@@ -33,7 +33,8 @@
 
   Template.showSectionsSelector.eachSection = function ()
   {
-  	return SectionsDB.find({}, {sort: {sectionName:1}});
+  	//return SectionsDB.find({}, {sort: {sectionName:1}});
+    return SectionsDB.find({folderName: Session.get("folderSelected")}, {sectionName:1});
   };
 
   Template.newNote.events =
@@ -43,41 +44,45 @@
   		var newFolder = document.getElementById("addFolder").value.trim();
   		var newSection = document.getElementById("addSection").value.trim();
   		var newNote = document.getElementById("addNote").value.trim();
-      var folderNameCount = FoldersDB.find( {folderName: {$in: [newFolder] } }).count();
+      var folderNameCount = FoldersDB.find( {folderName: newFolder}).count();
       if (folderNameCount > 0)
       {
-        var sectionNameCount = SectionsDB.find( {sectionName: {$in: [newSection] } }).count();
+        var sectionNameCount = SectionsDB.find( {folderName: newFolder} && {sectionName: newSection}).count();
         if (sectionNameCount > 0)
         {
         }
         else
         {
-          SectionsDB.insert({sectionName:newSection});
+          SectionsDB.insert({folderName: newFolder, sectionName:newSection});
         }
       }
       else
       {
         FoldersDB.insert({folderName:newFolder});
-        SectionsDB.insert({sectionName:newSection});
+        SectionsDB.insert({folderName: newFolder, sectionName:newSection});
       }
       
       Notes.insert({folder:newFolder, section:newSection, note:newNote });
   	}
   };
 
-  Template.getSectionOptions.events =
+  Template.showFoldersSelector.events =
   {
-  	'change .selectSection': function(evt)
+  	'change #selectFolder': function(event)
   	{
   		//var folderSelected = document.getElementById("selectFolder");
 	  	//var sectionSelected = document.getElementById("selectSection");
-	  	Session.set("sectionSelected", evt.currentTarget.value);
+	  	//Session.set("folderSelected", evt.currentTarget.value);
+      Session.set("folderSelected", Document.getElementById("selectFolder"));
+      var testSessionVariable = Session.get("folderSelected");
   	}
   };
 
-  Meteor.autosubscribe(function ()
+  Template.getSectionOptions.helpers = function()
   {
-    Meteor.subscribe("Notes", Session.get("sectionSelected"));
-  });
+    return SectionsDB.find({folderName: Session.get("folderSelected")}, {sectionName:1});
+
+  }
+
 
 
