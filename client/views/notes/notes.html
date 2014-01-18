@@ -3,22 +3,19 @@
 
 <body>
 
-	<div id="container" style="width:1300px">
+	{{> noteBody}}
 
-		<div id="menu" style="height:200px;width:100px;float:left;">
-			<b>Menu</b><br>
-			{{> showFoldersMenu}}
-		</div>
+</body>
 
+<template name="noteBody">
 		<div id="content" style="background-color:#EEEEEE;height:400px;width:1200px;float:left;">
+			<div>
 			Folder:
   		{{> showFoldersSelector}}
   		Section:
   		{{> getSectionOptions}}
-  		<br><br>
-
-  		{{> newNote}}
-
+  	</div>
+  	<div>
   		<br><br>
   		<table border="1">
   			<tr>
@@ -30,24 +27,22 @@
 				{{> showNotes}}
 			</table>
 		</div>
+</template>
 
-	</div>
-
-	Session Variable: {{testSessionVariable}}
-
-</body>
-
-
-<template name="showFoldersMenu">
-		{{#each eachFolder}}
-			{{> folderListMenu}}
+<template name="showNotes">
+		{{#each eachNote}}
+			{{> noteList}}
     {{/each}}
 </template>
 
-<template name="folderListMenu">
-	{{folderName}}<br>
+<template name="noteList">
+	<tr>
+		<td><button type="button">X</button></td>
+		<td>{{folder}}</td>
+		<td>{{section}}</td>
+		<td>{{note}}</td>
+	</tr>
 </template>
-
 
 <template name="showFoldersSelector">
 	<select id="selectFolder" class="selectFolder">
@@ -66,40 +61,13 @@
 <template name="getSectionOptions">
 	<select id="selectSection" class="selectSection">
 		<option value="sectionAll" selected="selected">All</option>
-		{{> showSectionsSelector}}
-	</select>
- </template>
-
-<template name="showSectionsSelector">
-		{{#each eachSection "eachFolder"}}
+		{{#each eachSection}}
 			{{> sectionListSelector}}
     {{/each}}
-</template>
+	</select>
+ </template>
 
 <template name="sectionListSelector">
 	<option value="{{sectionName}}">{{sectionName}}</option>
 </template>
 
-
-<template name="newNote">
-	Folder: <input type="text" id="addFolder" size="40"><br>
-	Section: <input type="text" id="addSection" size="40"><br>
-	Note: <input type="text" id="addNote" size="100"><br>
-	<input type="button" class="addItem" value="Add Note">
-</template>
-
-
-<template name="showNotes">
-		{{#each eachNote}}
-			{{> noteList}}
-    {{/each}}
-</template>
-
-<template name="noteList">
-	<tr>
-		<td><button type="button">X</button></td>
-		<td>{{folder}}</td>
-		<td>{{section}}</td>
-		<td>{{note}}</td>
-	</tr>
-</template>
