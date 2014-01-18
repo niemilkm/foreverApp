@@ -28,21 +28,44 @@
     
   };
 
+  Template.newNote.events =
+  {
+    'click input.addItem': function()
+    {
+      var newFolder = document.getElementById("addFolder").value.trim();
+      var newSection = document.getElementById("addSection").value.trim();
+      var newNote = document.getElementById("addNote").value.trim();
+      var folderNameCount = FoldersDB.find( {folderName: newFolder}).count();
+      if (folderNameCount > 0)
+      {
+        var sectionNameCount = SectionsDB.find( {folderName: newFolder} && {sectionName: newSection}).count();
+        if (sectionNameCount > 0)
+        {
+        }
+        else
+        {
+          SectionsDB.insert({folderName: newFolder, sectionName:newSection});
+        }
+      }
+      else
+      {
+        FoldersDB.insert({folderName:newFolder});
+        SectionsDB.insert({folderName: newFolder, sectionName:newSection});
+      }
+      
+      Notes.insert({folder:newFolder, section:newSection, note:newNote });
+    }
+  };
+
   Template.noteBody.events =
   {
   	'change #selectFolder': function(evt)
   	{
-  		//var folderSelected = document.getElementById("selectFolder");
-	  	//var sectionSelected = document.getElementById("selectSection");
-	  	//Session.set("folderSelected", evt.currentTarget.value);
       Session.set("folderSelected", evt.currentTarget.value);
   	},
 
     'change #selectSection': function(evt)
     {
-      //var folderSelected = document.getElementById("selectFolder");
-      //var sectionSelected = document.getElementById("selectSection");
-      //Session.set("folderSelected", evt.currentTarget.value);
       Session.set("sectionSelected", evt.currentTarget.value);
     }
 

@@ -17,6 +17,10 @@
   	</div>
   	<div>
   		<br><br>
+  		{{> newNote}}
+  	</div>
+  	<div>
+  		<br><br>
   		<table border="1">
   			<tr>
   				<th>Delete</th>
@@ -27,6 +31,13 @@
 				{{> showNotes}}
 			</table>
 		</div>
+</template>
+
+<template name="newNote">
+	Folder: <input type="text" id="addFolder" size="40"><br>
+	Section: <input type="text" id="addSection" size="40"><br>
+	Note: <input type="text" id="addNote" size="100"><br>
+	<input type="button" class="addItem" value="Add Note">
 </template>
 
 <template name="showNotes">
