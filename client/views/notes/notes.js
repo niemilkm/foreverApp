@@ -80,3 +80,55 @@ var folderSelectedChanged;
 
   };
 
+  Template.noteList.events =
+  {
+    'click input.deleteItem': function(evt)
+    {
+      var itemID = evt.currentTarget.id;
+
+      //var folderNameFromID = Notes.find({_id: itemID}, {fields: {folder:1}}).fetch();
+      //var folderCount = Notes.find({_id: itemID}, {folder: {$in: folderNameFromID}}).count();
+
+      var deleteNotesFolderID = Notes.find({_id: itemID}, {fields: {folder:1, section:1}});
+      deleteNotesFolderID.forEach(function (note)
+      {
+        Session.set("folderToDelete", note.folder);
+        Session.set("sectionToDelete", note.section);
+      });
+
+      var Notes_foldersCount = Notes.find({folder: Session.get("folderToDelete")}, {folder:1}).count();
+      if (Notes_foldersCount == 1)
+      {
+        var deleteFoldersDBFolderID = FoldersDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
+        deleteFoldersDBFolderID.forEach(function (folderDB)
+        {
+          FoldersDB.remove({_id: folderDB._id});
+        });
+
+        var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
+        deleteSectionDBFolderID.forEach(function (sectionDB)
+        {
+          SectionsDB.remove({_id: sectionDB._id});
+        });
+      }
+      else
+      {
+        var Notes_foldersAndSectionsCount = Notes.find({folder: Session.get("folderToDelete"), section: Session.get("sectionToDelete")}, {_id:1}).count();
+        if (Notes_foldersAndSectionsCount == 1)
+        {
+          var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete"), sectionName: Session.get("sectionToDelete")}, {_id:1});
+          deleteSectionDBFolderID.forEach(function (sectionDB)
+          {
+            SectionsDB.remove({_id: sectionDB._id});
+          });
+        }
+      }
+
+      
+
+      Notes.remove({_id: itemID});
+
+
+    }
+  }
+
