@@ -1,5 +1,5 @@
 
-
+var folderSelectedChanged;
 
  Template.showFoldersSelector.eachFolder = function ()
   {
@@ -8,7 +8,15 @@
 
   Template.getSectionOptions.eachSection = function ()
   {
-    return SectionsDB.find({folderName: Session.get("folderSelected")}, {sectionName:1});
+    if (folderSelectedChanged)
+    {
+      var setSectionValue = document.getElementById('selectSection');
+      setSectionValue.text = "All";
+      setSectionValue.value = "sectionAll";
+      Session.set("sectionSelected", "sectionAll");
+      folderSelectedChanged = false;
+    }
+    return SectionsDB.find({folderName: Session.get("folderSelected")}, {sort: {sectionName:1}});
   };
 
   Template.showNotes.eachNote = function () {
@@ -38,7 +46,7 @@
       var folderNameCount = FoldersDB.find( {folderName: newFolder}).count();
       if (folderNameCount > 0)
       {
-        var sectionNameCount = SectionsDB.find( {folderName: newFolder} && {sectionName: newSection}).count();
+        var sectionNameCount = SectionsDB.find( {folderName: newFolder, sectionName: newSection}).count();
         if (sectionNameCount > 0)
         {
         }
@@ -52,7 +60,7 @@
         FoldersDB.insert({folderName:newFolder});
         SectionsDB.insert({folderName: newFolder, sectionName:newSection});
       }
-      
+      Session.set("sectionSelected", Session.get("sectionSelected"));
       Notes.insert({folder:newFolder, section:newSection, note:newNote });
     }
   };
@@ -62,6 +70,7 @@
   	'change #selectFolder': function(evt)
   	{
       Session.set("folderSelected", evt.currentTarget.value);
+      folderSelectedChanged = true;
   	},
 
     'change #selectSection': function(evt)
