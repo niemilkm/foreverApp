@@ -1,27 +1,17 @@
 Router.map ->
   @route 'home',
+    template: 'home',
     path: '/'
 
   @route 'dashboard',
     path: '/dashboard'
 
   @route 'notes',
+    template: 'notes',
     path: '/notes'
 
   @route 'login',
     path: '/login'
-
-  @route 'postItem',
-    path: '/post_item'
-
-  @route 'postsList',
-    path: '/posts_list'
-
-  @route 'postsData',
-    path: '/postsData'
-
-  @route 'post',
-    path: '/post'
 
   @route 'notFound',
     path: '*'

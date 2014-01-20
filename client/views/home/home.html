@@ -1,3 +1,16 @@
 <template name="home">
-  Welcome to my new meteor app
+	<body>
+  	{{loginButtons}}
+  	<br><br>
+  	{{> userPage}}
+
+  	
+
+	</body>
+</template>
+
+<template name="userPage">
+	{{#if currentUser}}
+		<a href="http://localhost:3000/notes">Notes</a>
+	{{/if}}
 </template>
