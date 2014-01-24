@@ -23,17 +23,28 @@ var folderSelectedChanged;
 
     if (Session.get("folderSelected") == "folderAll" || Session.get("folderSelected") == null)
     {
-      return Notes.find({}, {sort: {folder:1, section:1, note:1}});
+      return Notes.find({}, {sort: {folder:1, section:1, note:1, email:1}});
     }
     else if (Session.get("sectionSelected") == "sectionAll")
     {
-      return Notes.find({folder: Session.get("folderSelected")}, {sort: {folder:1, section:1, note:1}});
+      return Notes.find({folder: Session.get("folderSelected")}, {sort: {folder:1, section:1, note:1, email:1}});
     }
     else
     {
-      return Notes.find({folder: Session.get("folderSelected"), section: Session.get("sectionSelected")}, {sort: {folder:1, section:1, note:1}});
+      return Notes.find({folder: Session.get("folderSelected"), section: Session.get("sectionSelected")}, {sort: {folder:1, section:1, note:1, email:1}});
     }
     
+  };
+
+  Template.noteList.emailCheckedValue = function ()
+  {
+    var emailBoxChecked = Notes.findOne({_id: this._id}, {email:1});
+    if (emailBoxChecked.email)
+    {
+      return 'checked';
+    }
+    else
+      return '';
   };
 
   Template.newNote.events =
@@ -123,12 +134,31 @@ var folderSelectedChanged;
           });
         }
       }
+      Notes.remove({_id: itemID});
+    },
+
+    'click input.emailItem': function(evt)
+    {
+      var itemID = event.currentTarget.value;
+
+      if (event.currentTarget.checked)
+      {
+        Notes.update({_id: itemID}, {$set: {email: true}});
+      }
+      else
+      {
+        Notes.update({_id: itemID}, {$set: {email: false}});
+      }
+
 
       
-
-      Notes.remove({_id: itemID});
-
-
+      
     }
+
+
+
+
   }
+
+
 

@@ -25,6 +25,7 @@
   		<table border="1">
   			<tr>
   				<th>Delete</th>
+  				<th>Email</th>
   				<th>Folder</th>
   				<th>Section</th>
   				<th>Note</th>
@@ -50,6 +51,7 @@
 <template name="noteList">
 	<tr>
 		<td><input type="button" id="{{_id}}" class="deleteItem" value="X"></td>
+		<td><input type="checkbox" id="email_{{_id}}" class="emailItem" value="{{_id}}" {{emailCheckedValue}}></td>
 		<td>{{folder}}</td>
 		<td>{{section}}</td>
 		<td>{{note}}</td>
