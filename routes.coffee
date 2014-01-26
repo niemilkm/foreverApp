@@ -1,14 +1,20 @@
 Router.map ->
   @route 'home',
-    template: 'home',
     path: '/'
 
   @route 'dashboard',
     path: '/dashboard'
+    before: ->
+      if !Meteor.user()
+        @redirect "/"
 
   @route 'notes',
-    template: 'notes',
-    path: '/notes'
+    path: '/notes/:id'
+    data: ->
+      Notes.findOne({_id: @params.id})
+    before: ->
+      if !Meteor.user()
+        @redirect "/"
 
   @route 'login',
     path: '/login'

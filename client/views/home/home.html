@@ -1,6 +1,6 @@
 <template name="home">
 	<body>
-  	{{loginButtons}}
+  	{{> entrySignIn}}
   	<br><br>
   	{{> userPage}}
 
@@ -11,6 +11,6 @@
 
 <template name="userPage">
 	{{#if currentUser}}
-		<a href="http://localhost:3000/notes">Notes</a>
+		<a href="/notes/{{userID}}">Notes</a>
 	{{/if}}
 </template>

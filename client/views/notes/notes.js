@@ -3,7 +3,7 @@ var folderSelectedChanged;
 
  Template.showFoldersSelector.eachFolder = function ()
   {
-  	return FoldersDB.find({}, {sort: {folderName:1}});
+  	return FoldersDB.find({userID:Meteor.userId()}, {sort: {folderName:1}});
   };
 
   Template.getSectionOptions.eachSection = function ()
@@ -16,22 +16,22 @@ var folderSelectedChanged;
       Session.set("sectionSelected", "sectionAll");
       folderSelectedChanged = false;
     }
-    return SectionsDB.find({folderName: Session.get("folderSelected")}, {sort: {sectionName:1}});
+    return SectionsDB.find({folderName: Session.get("folderSelected"), userID:Meteor.userId()}, {sort: {sectionName:1}});
   };
 
   Template.showNotes.eachNote = function () {
 
     if (Session.get("folderSelected") == "folderAll" || Session.get("folderSelected") == null)
     {
-      return Notes.find({}, {sort: {folder:1, section:1, note:1, email:1}});
+      return Notes.find({userID:Meteor.userId()}, {sort: {folder:1, section:1, note:1, email:1}});
     }
     else if (Session.get("sectionSelected") == "sectionAll")
     {
-      return Notes.find({folder: Session.get("folderSelected")}, {sort: {folder:1, section:1, note:1, email:1}});
+      return Notes.find({folder: Session.get("folderSelected"), userID:Meteor.userId()}, {sort: {folder:1, section:1, note:1, email:1}});
     }
     else
     {
-      return Notes.find({folder: Session.get("folderSelected"), section: Session.get("sectionSelected")}, {sort: {folder:1, section:1, note:1, email:1}});
+      return Notes.find({folder: Session.get("folderSelected"), section: Session.get("sectionSelected"), userID:Meteor.userId()}, {sort: {folder:1, section:1, note:1, email:1}});
     }
     
   };
@@ -57,22 +57,22 @@ var folderSelectedChanged;
       var folderNameCount = FoldersDB.find( {folderName: newFolder}).count();
       if (folderNameCount > 0)
       {
-        var sectionNameCount = SectionsDB.find( {folderName: newFolder, sectionName: newSection}).count();
+        var sectionNameCount = SectionsDB.find( {folderName: newFolder, sectionName: newSection, userID:Meteor.userId()}).count();
         if (sectionNameCount > 0)
         {
         }
         else
         {
-          SectionsDB.insert({folderName: newFolder, sectionName:newSection});
+          SectionsDB.insert({folderName: newFolder, sectionName:newSection, userID:Meteor.userId()});
         }
       }
       else
       {
-        FoldersDB.insert({folderName:newFolder});
-        SectionsDB.insert({folderName: newFolder, sectionName:newSection});
+        FoldersDB.insert({folderName:newFolder, userID:Meteor.userId()});
+        SectionsDB.insert({folderName: newFolder, sectionName:newSection, userID:Meteor.userId()});
       }
       Session.set("sectionSelected", Session.get("sectionSelected"));
-      Notes.insert({folder:newFolder, section:newSection, note:newNote });
+      Notes.insert({folder:newFolder, section:newSection, note:newNote, userID:Meteor.userId() });
     }
   };
 
