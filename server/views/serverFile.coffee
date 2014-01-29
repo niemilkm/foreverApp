@@ -20,4 +20,4 @@ Meteor.startup ->
 	        	subject: "Remember Note"
 	        	text: textSend
 	    ).run()
-  ), 300000
+  ), 43200000

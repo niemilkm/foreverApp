@@ -15,7 +15,11 @@
   		{{> showFoldersSelector}}
   		Section:
   		{{> getSectionOptions}}
+  		<br><br>
   	</div>
+  	<div>
+  		Email: {{> emailRadioButtons}}
+		</div>
   	<div>
   		<br><br>
   		{{> newNote}}
@@ -84,4 +88,12 @@
 <template name="sectionListSelector">
 	<option value="{{sectionName}}">{{sectionName}}</option>
 </template>
+
+<template name="emailRadioButtons">
+	<form id="radioEmail">
+		<input type="radio" name="radioEmail" value="yes" checked>Yes
+		<input type="radio" name="radioEmail" value="no">No
+	</form>
+</template>
+
 
