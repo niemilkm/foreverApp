@@ -1,16 +1,6 @@
 <template name="home">
 	<body>
   	{{> entrySignIn}}
-  	<br><br>
-  	{{> userPage}}
-
-  	
-
 	</body>
 </template>
 
-<template name="userPage">
-	{{#if currentUser}}
-		<a href="/notes/{{userID}}">Notes</a>
-	{{/if}}
-</template>

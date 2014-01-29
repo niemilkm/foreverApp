@@ -72,7 +72,7 @@ var folderSelectedChanged;
         SectionsDB.insert({folderName: newFolder, sectionName:newSection, userID:Meteor.userId()});
       }
       Session.set("sectionSelected", Session.get("sectionSelected"));
-      Notes.insert({folder:newFolder, section:newSection, note:newNote, userID:Meteor.userId() });
+      Notes.insert({folder:newFolder, section:newSection, note:newNote, userID:Meteor.userId(), email:false });
     }
   };
 
@@ -107,16 +107,16 @@ var folderSelectedChanged;
         Session.set("sectionToDelete", note.section);
       });
 
-      var Notes_foldersCount = Notes.find({folder: Session.get("folderToDelete")}, {folder:1}).count();
+      var Notes_foldersCount = Notes.find({folder: Session.get("folderToDelete"), userID:Meteor.userId()}, {folder:1}).count();
       if (Notes_foldersCount == 1)
       {
-        var deleteFoldersDBFolderID = FoldersDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
+        var deleteFoldersDBFolderID = FoldersDB.find({folderName: Session.get("folderToDelete"), userID:Meteor.userId()}, {_id:1});
         deleteFoldersDBFolderID.forEach(function (folderDB)
         {
           FoldersDB.remove({_id: folderDB._id});
         });
 
-        var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
+        var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete"), userID:Meteor.userId()}, {_id:1});
         deleteSectionDBFolderID.forEach(function (sectionDB)
         {
           SectionsDB.remove({_id: sectionDB._id});
@@ -124,10 +124,10 @@ var folderSelectedChanged;
       }
       else
       {
-        var Notes_foldersAndSectionsCount = Notes.find({folder: Session.get("folderToDelete"), section: Session.get("sectionToDelete")}, {_id:1}).count();
+        var Notes_foldersAndSectionsCount = Notes.find({folder: Session.get("folderToDelete"), section: Session.get("sectionToDelete"), userID:Meteor.userId()}, {_id:1}).count();
         if (Notes_foldersAndSectionsCount == 1)
         {
-          var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete"), sectionName: Session.get("sectionToDelete")}, {_id:1});
+          var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete"), sectionName: Session.get("sectionToDelete"), userID:Meteor.userId()}, {_id:1});
           deleteSectionDBFolderID.forEach(function (sectionDB)
           {
             SectionsDB.remove({_id: sectionDB._id});
