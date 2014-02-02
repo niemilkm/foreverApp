@@ -90,9 +90,9 @@
 </template>
 
 <template name="emailRadioButtons">
-	<form id="radioEmail">
-		<input type="radio" name="radioEmail" value="yes" checked>Yes
-		<input type="radio" name="radioEmail" value="no">No
+	<form>
+		<input type="radio" class="radioEmailYes" id="yes" value="yes" {{emailUserYes}}>Yes
+		<input type="radio" class="radioEmailNo" id="no" value="no" {{emailUserNo}}>No
 	</form>
 </template>
 
