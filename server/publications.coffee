@@ -8,4 +8,4 @@ Meteor.publish 'sectionDB', ->
   SectionsDB.find()
 
 Meteor.publish 'email', ->
-  return Emails.find()
+  Emails.find()

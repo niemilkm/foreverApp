@@ -1,32 +1,38 @@
 
 
 <template name="notes">
-<body>
-
-	{{> noteBody}}
-
-</body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2" style="background-color:#8181F7;"></div>
+      <div class="col-md-8" style="background-color:#D8D8D8;">
+				{{> noteBody}}
+			</div>
+			<div class="col-md-2" style="background-color:#8181F7;"></div>
+		</div>
+	</div>
 </template>
 
 <template name="noteBody">
-		<div id="content" style="background-color:#EEEEEE;height:400px;width:1200px;float:left;">
-			<div>
+	<div id="content">
+		<div <div class="text-center">
+			<br>
 			Folder:
   		{{> showFoldersSelector}}
   		Section:
   		{{> getSectionOptions}}
-  		<br><br>
-  	</div>
-  	<div>
+  		<br>
+		</div>
+  	<div class="text-center">
+  		<br>
   		Email: {{> emailRadioButtons}}
 		</div>
   	<div>
-  		<br><br>
+  		<br>
   		{{> newNote}}
   	</div>
-  	<div>
+  	<div class="text-center">
   		<br><br>
-  		<table border="1">
+  		<table class="table table-striped">
   			<tr>
   				<th>Delete</th>
   				<th>Email</th>
@@ -37,13 +43,25 @@
 				{{> showNotes}}
 			</table>
 		</div>
+	</div>
 </template>
 
 <template name="newNote">
-	Folder: <input type="text" id="addFolder" size="40"><br>
-	Section: <input type="text" id="addSection" size="40"><br>
-	Note: <input type="text" id="addNote" size="100"><br>
-	<input type="button" class="addItem" value="Add Note">
+	<form role="form">
+	  <div class="form-group">
+	    <label for="folder">Folder Name</label>
+	    <input type="text" class="form-control" id="addFolder" placeholder="Enter Folder">
+	  </div>
+	  <div class="form-group">
+	    <label for="section">Section Name</label>
+	    <input type="text" class="form-control" id="addSection" placeholder="Enter Section">
+	  </div>
+	  <div class="form-group">
+	    <label for="Note">Note</label>
+	    <input type="text" class="form-control" id="addNote" placeholder="Enter Note">
+	  </div>
+	  <input type="button" class="addItem" value="Add Note">
+	</form>
 </template>
 
 <template name="showNotes">
