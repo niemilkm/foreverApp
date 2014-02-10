@@ -2,6 +2,9 @@ Router.map ->
   @route 'home',
     path: '/'
 
+  @route 'login',
+    path: '/login'
+
   @route 'dashboard',
     path: '/dashboard'
     before: ->

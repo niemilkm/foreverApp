@@ -1,20 +1,18 @@
 
 
 <template name="notes">
-  <div class="container">
+  <div class="container notes">
     <div class="row">
-      <div class="col-md-2" style="background-color:#8181F7;"></div>
-      <div class="col-md-8" style="background-color:#D8D8D8;">
+      <div class="col-md-12">
 				{{> noteBody}}
 			</div>
-			<div class="col-md-2" style="background-color:#8181F7;"></div>
 		</div>
 	</div>
 </template>
 
 <template name="noteBody">
 	<div id="content">
-		<div <div class="text-center">
+		<div <div class="text-center text-black">
 			<br>
 			Folder:
   		{{> showFoldersSelector}}
@@ -22,17 +20,17 @@
   		{{> getSectionOptions}}
   		<br>
 		</div>
-  	<div class="text-center">
+  	<div class="text-center text-black">
   		<br>
   		Email: {{> emailRadioButtons}}
 		</div>
-  	<div>
+  	<div class="text-black">
   		<br>
   		{{> newNote}}
   	</div>
-  	<div class="text-center">
+  	<div>
   		<br><br>
-  		<table class="table table-striped">
+  		<table class="table">
   			<tr>
   				<th>Delete</th>
   				<th>Email</th>
@@ -58,7 +56,7 @@
 	  </div>
 	  <div class="form-group">
 	    <label for="Note">Note</label>
-	    <input type="text" class="form-control" id="addNote" placeholder="Enter Note">
+	    <textarea class="form-control" id="addNote" placeholder="Enter Note" rows="3"></textarea>
 	  </div>
 	  <input type="button" class="addItem" value="Add Note">
 	</form>
