@@ -2,15 +2,6 @@ Router.map ->
   @route 'home',
     path: '/'
 
-  @route 'login',
-    path: '/login'
-
-  @route 'dashboard',
-    path: '/dashboard'
-    before: ->
-      if !Meteor.user()
-        @redirect "/"
-
   @route 'notes',
     path: '/notes/:id'
     data: ->
@@ -19,9 +10,6 @@ Router.map ->
     before: ->
       if !Meteor.user()
         @redirect "/"
-
-  @route 'login',
-    path: '/login'
 
   @route 'notFound',
     path: '*'

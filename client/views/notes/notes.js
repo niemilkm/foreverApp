@@ -1,6 +1,8 @@
 
 var folderSelectedChanged;
 var emailUser_session;
+Session.set("folderSelected", "folderAll");
+Session.set("sectionSelected", "sectionAll");
 
 emailSubscription = Meteor.subscribe('email');
 
