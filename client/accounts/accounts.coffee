@@ -4,4 +4,4 @@ Meteor.startup ->
 
   AccountsEntry.config
     homeRoute: '/'
-    dashboardRoute: "/notes/" + Meteor.userId()
+    dashboardRoute: "/notes/"
