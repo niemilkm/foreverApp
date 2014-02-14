@@ -1,4 +1,22 @@
-Notes = new Meteor.Collection('note');
+
 FoldersDB = new Meteor.Collection('folderDB');
-SectionsDB = new Meteor.Collection('sectionDB');
-Emails = new Meteor.Collection('email');
+
+
+
+
+if (Meteor.isServer)
+{
+
+	FoldersDB.allow({ 
+  	insert: function() {
+    	return true;
+    },
+    update: function() {
+    	return true;
+    },
+    remove: function() {
+    	return true;
+  }
+});
+
+}

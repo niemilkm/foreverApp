@@ -1,11 +1,11 @@
 Meteor.publish 'note', ->
-  Notes.find()
+  Notes.find({userID: this.userId})
 
 Meteor.publish 'folderDB', ->
-  FoldersDB.find()
+  FoldersDB.find({userID: this.userId})
 
 Meteor.publish 'sectionDB', ->
-  SectionsDB.find()
+  SectionsDB.find({userID: this.userId})
 
 Meteor.publish 'email', ->
-  Emails.find()
+  Emails.find({userID: this.userId})
