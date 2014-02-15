@@ -3,10 +3,9 @@ Router.map ->
     path: '/'
 
   @route 'notes',
-    path: '/notes/:id'
+    path: '/notes'
     data: ->
-      Notes.findOne({_id: @params.id})
-      Emails.find({userID: Meteor.userId()}).count();
+      Notes.find({userID: Meteor.userId()})
     before: ->
       if !Meteor.user()
         @redirect "/"
