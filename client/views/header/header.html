@@ -1,0 +1,14 @@
+<template name="header">
+	<div class="container headerLogin" >
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<header style="text-align:right">
+				{{#if currentUser}}
+	  			{{loginButtons}}
+	  		{{/if}}
+	  	</header>
+	  </div>
+		<div class="col-md-2"></div>
+	</div>
+
+</template>

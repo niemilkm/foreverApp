@@ -1,30 +1,65 @@
 
-<body>
 
-	<div id="container" style="width:500px">
-
-		<div id="menu" style="height:200px;width:100px;float:left;">
-			<b>Menu</b><br>
-			{{> showFolders}}
+<template name="notes">
+  <div class="container notes">
+    <div class="row">
+      <div class="col-md-12">
+				{{> noteBody}}
+			</div>
 		</div>
-
-		<div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
-			{{> showNotes}}
-		</div>
-
 	</div>
-
-</body>
-
-
-<template name="showFolders">
-		{{#each eachFolder}}
-			{{> folderList}}
-    {{/each}}
 </template>
 
-<template name="folderList">
-	{{folder}}<br>
+<template name="noteBody">
+	<div id="content">
+		<div <div class="text-center text-black">
+			<br>
+			Folder:
+  		{{> showFoldersSelector}}
+  		Section:
+  		{{> getSectionOptions}}
+  		<br>
+		</div>
+  	<div class="text-center text-black">
+  		<br>
+  		Email: {{> emailRadioButtons}}
+		</div>
+  	<div class="text-black">
+  		<br>
+  		{{> newNote}}
+  	</div>
+  	<div>
+  		<br><br>
+  		<table class="table">
+  			<tr>
+  				<th>Delete</th>
+  				<th>Email</th>
+  				<th>Folder</th>
+  				<th>Section</th>
+  				<th>Note</th>
+  			</tr>
+				{{> showNotes}}
+			</table>
+		</div>
+	</div>
+</template>
+
+<template name="newNote">
+	<form role="form">
+	  <div class="form-group">
+	    <label for="folder">Folder Name</label>
+	    <input type="text" class="form-control" id="addFolder" placeholder="Enter Folder">
+	  </div>
+	  <div class="form-group">
+	    <label for="section">Section Name</label>
+	    <input type="text" class="form-control" id="addSection" placeholder="Enter Section">
+	  </div>
+	  <div class="form-group">
+	    <label for="Note">Note</label>
+	    <textarea class="form-control" id="addNote" placeholder="Enter Note" rows="3"></textarea>
+	  </div>
+	  <input type="button" class="addItem" value="Add Note">
+	</form>
 </template>
 
 <template name="showNotes">
@@ -34,7 +69,47 @@
 </template>
 
 <template name="noteList">
-	Folder: {{folder}}
-	Section: {{section}}
-	Note: {{note}}
+	<tr>
+		<td><input type="button" id="{{_id}}" class="deleteItem" value="X"></td>
+		<td><input type="checkbox" id="email_{{_id}}" class="emailItem" value="{{_id}}" {{emailCheckedValue}}></td>
+		<td>{{folder}}</td>
+		<td>{{section}}</td>
+		<td>{{note}}</td>
+	</tr>
 </template>
+
+<template name="showFoldersSelector">
+	<select id="selectFolder" class="selectFolder">
+				<option value="folderAll" selected="selected">All</option>
+				{{#each eachFolder}}
+					{{> folderListSelector}}
+    		{{/each}}
+  </select>
+</template>
+
+<template name="folderListSelector">
+	<option value="{{folderName}}">{{folderName}}</option>
+</template>
+
+
+<template name="getSectionOptions">
+	<select id="selectSection" class="selectSection" value="All">
+		<option value="sectionAll" selected="selected">All</option>
+		{{#each eachSection}}
+			{{> sectionListSelector}}
+    {{/each}}
+	</select>
+ </template>
+
+<template name="sectionListSelector">
+	<option value="{{sectionName}}">{{sectionName}}</option>
+</template>
+
+<template name="emailRadioButtons">
+	<form>
+		<input type="radio" class="radioEmailYes" id="yes" value="yes" {{emailUserYes}}>Yes
+		<input type="radio" class="radioEmailNo" id="no" value="no" {{emailUserNo}}>No
+	</form>
+</template>
+
+

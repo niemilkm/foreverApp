@@ -1,2 +1,7 @@
 <template name="dashboard">
+
+	{{#if currentUser}}
+		<a href="/notes/{{userID}}">Notes</a>
+	{{/if}}
+
 </template>
