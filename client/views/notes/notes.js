@@ -54,7 +54,8 @@ Deps.autorun(function()
 
     if (Session.get("folderSelected") == "folderAll" || Session.get("folderSelected") == null)
     {
-      return Notes.find({userID:Meteor.userId()}, {sort: {folder:1, section:1, note:1}});
+      //return Notes.find({userID:Meteor.userId()}, {sort: {folder:1, section:1, note:1}});
+      return Notes.find({}, {sort: {folder:1, section:1, note:1}});
     }
     else if (Session.get("sectionSelected") == "sectionAll")
     {
@@ -105,7 +106,9 @@ Deps.autorun(function()
       }
       else
       {
-        FoldersDB.insert({folderName:newFolder, userID:Meteor.userId()});
+        //FoldersDB.insert({folderName:newFolder, userID:Meteor.userId()});
+        Meteor.call("insert_folderDB", newFolder, function(error, user_id) {
+          });
         //SectionsDB.insert({folderName: newFolder, sectionName:newSection, userID:Meteor.userId()});
         Meteor.call("insert_sectionDB", newFolder, newSection, function(error, user_id) {
         });
@@ -154,7 +157,9 @@ Deps.autorun(function()
         var deleteFoldersDBFolderID = FoldersDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
         deleteFoldersDBFolderID.forEach(function (folderDB)
         {
-          FoldersDB.remove({_id: folderDB._id});
+          //FoldersDB.remove({_id: folderDB._id});
+          Meteor.call("remove_folderDB", folderDB._id, function(error, user_id) {
+          });
         });
 
         //var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete"), userID:Meteor.userId()}, {_id:1});
