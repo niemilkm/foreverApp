@@ -1,0 +1,83 @@
+{
+  "format": "browser-program-pre1",
+  "page": "app.html",
+  "manifest": [
+    {
+      "path": "54c938cee868190e3785ffeb0c5d81d07e434469.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/54c938cee868190e3785ffeb0c5d81d07e434469.js",
+      "size": 430843,
+      "hash": "54c938cee868190e3785ffeb0c5d81d07e434469"
+    },
+    {
+      "path": "a7e02441c310030153a84d5acae24458f4d1e5f1.css",
+      "where": "client",
+      "type": "css",
+      "cacheable": true,
+      "url": "/a7e02441c310030153a84d5acae24458f4d1e5f1.css",
+      "size": 125957,
+      "hash": "a7e02441c310030153a84d5acae24458f4d1e5f1"
+    },
+    {
+      "path": "app/favicon.ico",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/favicon.ico",
+      "size": 1150,
+      "hash": "b90c51ed2c27bc7345c65773b54cd6fd45749680"
+    },
+    {
+      "path": "app/fonts/FontAwesome.otf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/FontAwesome.otf",
+      "size": 62856,
+      "hash": "b5b4f9be85f91f10799e87a083da1d050f842734"
+    },
+    {
+      "path": "app/fonts/fontawesome-webfont.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/fontawesome-webfont.eot",
+      "size": 38205,
+      "hash": "7619748fe34c64fb157a57f6d4ef3678f63a8f5e"
+    },
+    {
+      "path": "app/fonts/fontawesome-webfont.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/fontawesome-webfont.svg",
+      "size": 202148,
+      "hash": "46fcc0194d75a0ddac0a038aee41b23456784814"
+    },
+    {
+      "path": "app/fonts/fontawesome-webfont.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/fontawesome-webfont.ttf",
+      "size": 80652,
+      "hash": "7f09c97f333917034ad08fa7295e916c9f72fd3f"
+    },
+    {
+      "path": "app/fonts/fontawesome-webfont.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/fontawesome-webfont.woff",
+      "size": 44432,
+      "hash": "04c3bf56d87a0828935bd6b4aee859995f321693"
+    },
+    {
+      "path": "app.html",
+      "where": "internal",
+      "hash": "8004586022a6b5cd95fa5fffcedd3884a606fa69"
+    }
+  ]
+}
