@@ -3,13 +3,13 @@
   "page": "app.html",
   "manifest": [
     {
-      "path": "54c938cee868190e3785ffeb0c5d81d07e434469.js",
+      "path": "02087f9fa52bf4d72f556dba4fab704401db07a6.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/54c938cee868190e3785ffeb0c5d81d07e434469.js",
-      "size": 430843,
-      "hash": "54c938cee868190e3785ffeb0c5d81d07e434469"
+      "url": "/02087f9fa52bf4d72f556dba4fab704401db07a6.js",
+      "size": 433887,
+      "hash": "02087f9fa52bf4d72f556dba4fab704401db07a6"
     },
     {
       "path": "a7e02441c310030153a84d5acae24458f4d1e5f1.css",
@@ -26,8 +26,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/favicon.ico",
-      "size": 1150,
-      "hash": "b90c51ed2c27bc7345c65773b54cd6fd45749680"
+      "size": 596,
+      "hash": "2ba23cc16b6b341ae4d6dd04fddc38f7e852b742"
     },
     {
       "path": "app/fonts/FontAwesome.otf",
@@ -77,7 +77,7 @@
     {
       "path": "app.html",
       "where": "internal",
-      "hash": "8004586022a6b5cd95fa5fffcedd3884a606fa69"
+      "hash": "fb446c39d964387096ad2a85609ee2d367c15c20"
     }
   ]
 }
