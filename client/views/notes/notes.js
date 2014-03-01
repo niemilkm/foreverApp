@@ -1,30 +1,35 @@
 
 var folderSelectedChanged;
-var emailUser_session;
-
+var enableInitialEmailUser;
 emailSubscription = Meteor.subscribe('email');
 
-Deps.autorun(function() 
+Template.notes.forFirstUserCreateEmailDBEntry = function()
 {
-  if (emailSubscription.ready())
+  if (Emails.find({userID: Meteor.userId()}).count() < 1)
   {
-    //var emailsCollectionHasUser = Emails.find({userID: Meteor.userId()});
-    var emailsCollectionHasUser = Emails.find();
-    if (emailsCollectionHasUser.count() < 1)
-    {
-      //Emails.insert({userID: Meteor.userId(), emailUser: false});
-      Meteor.call("insert_email", false, function(error, user_id) {
-      });
-    }
+    console.log("intial Emails Entry set-up")
+    Meteor.call("insert_email", true, function(error, user_id) {
+    });
+    Meteor.call("insert_starter_notes", function(error, user_id) {
+    });
+  }
+  enableInitialEmailUser = true;
+}
 
-    if (emailsCollectionHasUser.fetch()[0].emailUser)
+Deps.autorun(function()
+{
+  if (emailSubscription.ready() && enableInitialEmailUser)
+  {
+    console.log("starting deps ready");
+    if (Emails.find({userID: Meteor.userId()}).fetch()[0].emailUser)
     {
-      Session.set("emailUser", true);
+       Session.set("emailUser", true);
     }
     else
     {
       Session.set("emailUser", false);
     }
+    console.log("ending deps ready");
   }
 });
 
@@ -43,28 +48,22 @@ Deps.autorun(function()
       Session.set("sectionSelected", "sectionAll");
       folderSelectedChanged = false;
     }
-    console.log("show section options");
-    console.log(Session.get("folderSelected"));
-    console.log(SectionsDB.find().fetch());
-    //return SectionsDB.find({folderName: Session.get("folderSelected"), userID:Meteor.userId()}, {sort: {sectionName:1}});
-    return SectionsDB.find({folderName: Session.get("folderSelected")}, {sort: {sectionName:1}});
+    if (Session.get("folderSelected"))
+      return SectionsDB.find({folderName: Session.get("folderSelected")});
   };
 
   Template.showNotes.eachNote = function () {
 
     if (Session.get("folderSelected") == "folderAll" || Session.get("folderSelected") == null)
     {
-      //return Notes.find({userID:Meteor.userId()}, {sort: {folder:1, section:1, note:1}});
       return Notes.find({}, {sort: {folder:1, section:1, note:1}});
     }
     else if (Session.get("sectionSelected") == "sectionAll")
     {
-      //return Notes.find({folder: Session.get("folderSelected"), userID:Meteor.userId()}, {sort: {folder:1, section:1, note:1}});
       return Notes.find({folder: Session.get("folderSelected")}, {sort: {folder:1, section:1, note:1}});
     }
     else
     {
-      //return Notes.find({folder: Session.get("folderSelected"), section: Session.get("sectionSelected"), userID:Meteor.userId()}, {sort: {folder:1, section:1, note:1}});
       return Notes.find({folder: Session.get("folderSelected"), section: Session.get("sectionSelected")}, {sort: {folder:1, section:1, note:1}});
     }
     
@@ -72,11 +71,9 @@ Deps.autorun(function()
 
   Template.noteList.emailCheckedValue = function ()
   {
-    var emailBoxChecked = Notes.findOne({_id: this._id});
+    var emailBoxChecked = Notes.find({_id: this._id});
     if (emailBoxChecked.email)
-    {
       return 'checked';
-    }
     else
       return '';
   };
@@ -115,7 +112,7 @@ Deps.autorun(function()
       }
       Session.set("sectionSelected", Session.get("sectionSelected"));
       //Notes.insert({folder:newFolder, section:newSection, note:newNote, userID:Meteor.userId(), email:false });
-      Meteor.call("insert_note", newFolder, newSection, newNote, false, function(error, user_id) {
+      Meteor.call("insert_note", newFolder, newSection, newNote, true, function(error, user_id) {
       });
     }
   };
@@ -240,6 +237,7 @@ Deps.autorun(function()
 
   Template.emailRadioButtons.emailUserYes = function ()
   {
+    console.log("EmailUserYes ran")
     if (Session.get("emailUser"))
     {
       return 'checked';
@@ -250,6 +248,7 @@ Deps.autorun(function()
 
   Template.emailRadioButtons.emailUserNo = function ()
   {
+    console.log("EmailUserNo ran")
     if (Session.get("emailUser"))
     {
       return '';
