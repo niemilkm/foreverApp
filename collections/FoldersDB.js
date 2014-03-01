@@ -9,6 +9,9 @@ Meteor.methods({
   //},
   remove_folderDB: function(itemID) {
     FoldersDB.remove({_id:itemID, userID:this.userId});
+  },
+  insert_starterFolder: function() {
+    FoldersDB.insert({folderName: "Life Quotes", userID:Meteor.userId()});
   }
 });
 

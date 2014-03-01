@@ -22,3 +22,10 @@ Meteor.startup ->
 	        	text: textSend
 	    ).run()
   ), 43200000
+
+  Meteor.methods update_emailVerification: ->
+	  Meteor.users.update
+	    _id: @userId
+	  ,
+	    $set:
+	      "emails.0.verified": true

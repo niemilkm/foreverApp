@@ -13,7 +13,7 @@
 
 <template name="noteBody">
 	<div id="content">
-		<div <div class="text-center text-black">
+		<div class="text-center text-black">
 			<br>
 			Folder:
   		{{> showFoldersSelector}}
@@ -43,6 +43,18 @@
 			</table>
 		</div>
 	</div>
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48383569-1', 'remembernote.com');
+  ga('send', 'pageview');
+
+	</script>
+
 </template>
 
 <template name="newNote">
@@ -72,7 +84,7 @@
 <template name="noteList">
 	<tr>
 		<td><input type="button" id="{{_id}}" class="deleteItem" value="X"></td>
-		<td><input type="checkbox" id="email_{{_id}}" class="emailItem" value="{{_id}}" {{emailCheckedValue}}></td>
+		<td><input type="checkbox" class="emailItem" value="{{_id}}" {{email}}></td>
 		<td>{{folder}}</td>
 		<td>{{section}}</td>
 		<td>{{note}}</td>
@@ -81,10 +93,10 @@
 
 <template name="showFoldersSelector">
 	<select id="selectFolder" class="selectFolder">
-				<option value="folderAll" selected="selected">All</option>
-				{{#each eachFolder}}
-					{{> folderListSelector}}
-    		{{/each}}
+		<option value="folderAll" selected="selected">All</option>
+		{{#each eachFolder}}
+			{{> folderListSelector}}
+		{{/each}}
   </select>
 </template>
 
@@ -92,10 +104,9 @@
 	<option value="{{folderName}}">{{folderName}}</option>
 </template>
 
-
 <template name="getSectionOptions">
-	<select id="selectSection" class="selectSection" value="All">
-		<option value="sectionAll" selected="selected">All</option>
+	<select id="selectSection" class="selectSection">
+		<option value="sectionAll" selected>All</option>
 		{{#each eachSection}}
 			{{> sectionListSelector}}
     {{/each}}

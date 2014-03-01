@@ -9,6 +9,11 @@ Meteor.methods({
   //},
   remove_sectionDB: function(itemID) {
     SectionsDB.remove({_id:itemID, userID:this.userId});
+  },
+  insert_starterSection: function() {
+    SectionsDB.insert({folderName: "Life Quotes", sectionName: "Ralph Waldo Emerson", userID: Meteor.userId()});
+    SectionsDB.insert({folderName: "Life Quotes", sectionName: "Greg Anderson", userID: Meteor.userId()});
+    SectionsDB.insert({folderName: "Life Quotes", sectionName: "George Bernard Shaw", userID: Meteor.userId()});
   }
 });
 
