@@ -9,6 +9,8 @@ Router.map ->
     before: ->
       if !Meteor.user()
         @redirect "/"
+    after: ->
+        ga "send", "pageview", "/notes"
 
   @route 'notFound',
     path: '*'

@@ -9,19 +9,20 @@ Meteor.startup ->
       _.each allUsers, (userData) ->
 	      userIDFromLoop = userData._id
 	      userEmailFromLoop = userData.emails[0].address
-	      emailNoteCount = Notes.find({userID: userIDFromLoop, email:true}).count()
+	      emailNoteCount = Notes.find({userID: userIDFromLoop, email: "checked"}).count()
 	      console.log userEmailFromLoop
-	      if (emailNoteCount > 0 && Emails.findOne({userID: userIDFromLoop}).emailUser)
-	      	emailNote = Notes.find({userID: userIDFromLoop, email:true}, {sort: {folder: 1}}).fetch()
-	      	randomNoteIndex = Math.floor(Math.random() * emailNoteCount)
-	      	textSend = emailNote[randomNoteIndex].folder + " - " + emailNote[randomNoteIndex].section + " - " + emailNote[randomNoteIndex].note
-	      	Email.send
-	        	to: userEmailFromLoop
-	        	from: userEmailFromLoop
-	        	subject: "Remember Note"
-	        	text: textSend
+	      if (Emails.findOne({userID: userIDFromLoop}) != null && Emails.findOne({userID: userIDFromLoop}) != undefined)
+		      if (emailNoteCount > 0 && Emails.findOne({userID: userIDFromLoop}).emailUser)
+		      	emailNote = Notes.find({userID: userIDFromLoop, email: "checked"}, {sort: {folder: 1}}).fetch()
+		      	randomNoteIndex = Math.floor(Math.random() * emailNoteCount)
+		      	textSend = emailNote[randomNoteIndex].folder + " - " + emailNote[randomNoteIndex].section + " - " + emailNote[randomNoteIndex].note
+		      	Email.send
+		        	to: userEmailFromLoop
+		        	from: "yournote@remembernote.com"
+		        	subject: "Remember Note"
+		        	text: textSend + "\n\n\nwww.remembernote.com"
 	    ).run()
-  ), 43200000
+  ), 6000
 
   Meteor.methods update_emailVerification: ->
 	  Meteor.users.update
