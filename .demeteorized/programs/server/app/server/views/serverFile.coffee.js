@@ -38,13 +38,13 @@ Meteor.startup(function() {
               to: userEmailFromLoop,
               from: "yournote@remembernote.com",
               subject: "Remember Note",
-              text: textSend
+              text: textSend + "\n\n\nwww.remembernote.com"
             });
           }
         }
       });
     }).run();
-  }), 9000000);
+  }), 43200000);
   return Meteor.methods({
     update_emailVerification: function() {
       return Meteor.users.update({

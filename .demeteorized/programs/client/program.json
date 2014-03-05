@@ -3,22 +3,22 @@
   "page": "app.html",
   "manifest": [
     {
-      "path": "8d87c62d2b32a1f32fe09e5efb12427c11f4d88f.js",
+      "path": "ca2c95ea83dc1491f70162aa84c49bd2019af320.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/8d87c62d2b32a1f32fe09e5efb12427c11f4d88f.js",
-      "size": 446891,
-      "hash": "8d87c62d2b32a1f32fe09e5efb12427c11f4d88f"
+      "url": "/ca2c95ea83dc1491f70162aa84c49bd2019af320.js",
+      "size": 453842,
+      "hash": "ca2c95ea83dc1491f70162aa84c49bd2019af320"
     },
     {
-      "path": "a7e02441c310030153a84d5acae24458f4d1e5f1.css",
+      "path": "016114b3218f9bca7aa02c28d19490186a5cf58f.css",
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/a7e02441c310030153a84d5acae24458f4d1e5f1.css",
-      "size": 125957,
-      "hash": "a7e02441c310030153a84d5acae24458f4d1e5f1"
+      "url": "/016114b3218f9bca7aa02c28d19490186a5cf58f.css",
+      "size": 127756,
+      "hash": "016114b3218f9bca7aa02c28d19490186a5cf58f"
     },
     {
       "path": "app/favicon.ico",
@@ -28,6 +28,24 @@
       "url": "/favicon.ico",
       "size": 596,
       "hash": "2ba23cc16b6b341ae4d6dd04fddc38f7e852b742"
+    },
+    {
+      "path": "app/openingPicture copy.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/openingPicture copy.jpg",
+      "size": 20187,
+      "hash": "a8b39ec999be97d6c937372c581dc5e2814c1a58"
+    },
+    {
+      "path": "app/openingPicture.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/openingPicture.jpg",
+      "size": 139473,
+      "hash": "75b634fb01f2f3a1fc1d2f1edb2c8889ff84c81a"
     },
     {
       "path": "app/fonts/FontAwesome.otf",
@@ -77,7 +95,7 @@
     {
       "path": "app.html",
       "where": "internal",
-      "hash": "402e6df2c383815bbfdb1f10f9c0c9c2933e8ed6"
+      "hash": "4d004563906e667dfde175b806b4c2d6664e6d34"
     }
   ]
 }

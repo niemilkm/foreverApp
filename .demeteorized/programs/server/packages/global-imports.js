@@ -8,6 +8,7 @@ AccountsEntry = Package['accounts-entry'].AccountsEntry;
 Email = Package.email.Email;
 _ = Package.underscore._;
 HTTP = Package.http.HTTP;
+Spiderable = Package.spiderable.Spiderable;
 Meteor = Package.meteor.Meteor;
 WebApp = Package.webapp.WebApp;
 main = Package.webapp.main;
