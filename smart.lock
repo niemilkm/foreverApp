@@ -4,7 +4,8 @@
     "basePackages": {
       "iron-router": {},
       "accounts-entry": {},
-      "handlebars-server": {}
+      "handlebars-server": {},
+      "phantomjs": {}
     },
     "packages": {
       "iron-router": {
@@ -14,13 +15,18 @@
       },
       "accounts-entry": {
         "git": "https://github.com/BeDifferential/accounts-entry.git",
-        "tag": "v0.6.1",
-        "commit": "8e42d4abca33d6a00d236d198589fe4924729d09"
+        "tag": "v0.6.2",
+        "commit": "56c9b6c064cc0d92a97aa9b53a8f4da050f54c29"
       },
       "handlebars-server": {
         "git": "https://github.com/EventedMind/meteor-handlebars-server.git",
         "tag": "v1.1.0",
         "commit": "ed99c8e9280894519f44a5b4c84f66ff596c5450"
+      },
+      "phantomjs": {
+        "git": "https://github.com/gadicohen/meteor-phantomjs.git",
+        "tag": "v0.0.2",
+        "commit": "a72eb79af068dd5d5d617ac71a42bd74e0cb52a4"
       },
       "just-i18n": {
         "git": "https://github.com/subhog/meteor-just-i18n.git",
