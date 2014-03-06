@@ -12,6 +12,9 @@ Router.map ->
     after: ->
         ga "send", "pageview", "/notes"
 
+  @route 'bootstrapTheme',
+    path: '/bootstrapTheme'
+
   @route 'notFound',
     path: '*'
     where: 'server'
