@@ -1,12 +1,17 @@
 
 
 <template name="notes">
-  <div class="container notes">
+		<div class="container">
+			<div class="page-header">
+				<div class="collapse navbar-collapse navbar-center navbar-ex1-collapse">
+					{{> showSelector}}
+		    </div>
+			</div>
+
     <div class="row">
       <div class="col-md-12">
       	{{forFirstUserCreateEmailDBEntry}}
 				{{> noteBody}}
-				<br><br><br>
 			</div>
 		</div>
 	</div>
@@ -14,24 +19,13 @@
 
 <template name="noteBody">
 	<div id="content">
-		<div class="text-center text-black">
-			<br>
-			Folder:
-  		{{> showFoldersSelector}}
-  		Section:
-  		{{> getSectionOptions}}
-  		<br>
-		</div>
   	<div class="text-center text-black">
-  		<br>
-  		Email: {{> emailRadioButtons}}
 		</div>
   	<div class="text-black">
-  		<br>
   		{{> newNote}}
   	</div>
   	<div>
-  		<br><br>
+  		<br>
   		<table class="table">
   			<tr>
   				<th>Delete</th>
@@ -47,21 +41,31 @@
 </template>
 
 <template name="newNote">
-	<form role="form">
-	  <div class="form-group">
-	    <label for="folder">Folder Name</label>
-	    <input type="text" class="form-control" id="addFolder" placeholder="Enter Folder">
-	  </div>
-	  <div class="form-group">
-	    <label for="section">Section Name</label>
-	    <input type="text" class="form-control" id="addSection" placeholder="Enter Section">
-	  </div>
-	  <div class="form-group">
-	    <label for="Note">Note</label>
-	    <textarea class="form-control" id="addNote" placeholder="Enter Note" rows="3"></textarea>
-	  </div>
-	  <input type="button" class="addItem" value="Add Note">
-	</form>
+	<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <form>
+      	<div class="row">
+      		<div class="form-group col-md-6">
+		        <label>Folder Name</label>
+		        <input type="text" class="form-control" id="addFolder" placeholder="Enter Folder">
+		      </div>
+		      <div class="form-group col-md-6">
+		        <label>Section Name</label>
+		        <input type="text" class="form-control" id="addSection" placeholder="Enter Section">
+		      </div>
+		    </div>
+			  <div class="form-group">
+			    <label for="Note">Note</label>
+			    <textarea class="form-control" id="addNote" placeholder="Enter Note" rows="3"></textarea>
+			  </div>
+			  <div class="row">
+			  	<div class="form-group col-md-6">
+	  				<input type="button" class="addItem" value="Add Note">
+	  			</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </template>
 
 <template name="showNotes">
@@ -80,37 +84,33 @@
 	</tr>
 </template>
 
-<template name="showFoldersSelector">
-	<select id="selectFolder" class="selectFolder">
-		<option value="folderAll" selected="selected">All</option>
-		{{#each eachFolder}}
-			{{> folderListSelector}}
-		{{/each}}
-  </select>
+<template name="showSelector">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-4">
+			<label>Folder</label>
+			<select id="selectFolder" class="selectFolder">
+				<option value="folderAll" selected="selected">All</option>
+				{{#each eachFolder}}
+					<option value="{{folderName}}">{{folderName}}</option>
+				{{/each}}
+		  </select>
+			<label>Section</label>
+			<select id="selectSection" class="selectSection">
+				<option value="sectionAll" selected>All</option>
+				{{#each eachSection}}
+					<option value="{{sectionName}}">{{sectionName}}</option>
+		    {{/each}}
+			</select>
+		</div>
+		<div class="col-md-2">
+			<label>Email</label>
+			<input type="radio" class="radioEmailYes" id="yes" value="yes" {{emailUserYes}}>Yes
+			<input type="radio" class="radioEmailNo" id="no" value="no" {{emailUserNo}}>No
+		</div>
+	</div>
 </template>
 
-<template name="folderListSelector">
-	<option value="{{folderName}}">{{folderName}}</option>
-</template>
 
-<template name="getSectionOptions">
-	<select id="selectSection" class="selectSection">
-		<option value="sectionAll" selected>All</option>
-		{{#each eachSection}}
-			{{> sectionListSelector}}
-    {{/each}}
-	</select>
- </template>
 
-<template name="sectionListSelector">
-	<option value="{{sectionName}}">{{sectionName}}</option>
-</template>
-
-<template name="emailRadioButtons">
-	<form>
-		<input type="radio" class="radioEmailYes" id="yes" value="yes" {{emailUserYes}}>Yes
-		<input type="radio" class="radioEmailNo" id="no" value="no" {{emailUserNo}}>No
-	</form>
-</template>
 
 

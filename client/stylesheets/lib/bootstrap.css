@@ -320,7 +320,8 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  /*color: #428bca;*/
+  color: #fff;
   text-decoration: none;
 }
 
@@ -4707,7 +4708,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-brand {
-  color: #777777;
+  /*color: #777777;*/
+  color: #fff;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -4806,7 +4808,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  /*color: #999999;*/
+  color: #fff;
 }
 
 .navbar-inverse .navbar-brand:hover,

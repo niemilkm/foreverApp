@@ -15,13 +15,13 @@
     }
   };
 
- Template.showFoldersSelector.eachFolder = function ()
+ Template.showSelector.eachFolder = function ()
   {
     console.log("eachFolder");
   	return FoldersDB.find({userID:Meteor.userId()}, {sort: {folderName:1}});
   };
 
-  Template.getSectionOptions.eachSection = function ()
+  Template.showSelector.eachSection = function ()
   {
     var sessionFolderSelected = Session.get("folderSelected");
     console.log("eachSection");
@@ -84,7 +84,7 @@
     }
   };
 
-  Template.noteBody.events =
+  Template.notes.events =
   {
   	'change #selectFolder': function(evt)
   	{
@@ -168,7 +168,7 @@
     }
   };
 
-  Template.emailRadioButtons.events =
+  Template.showSelector.events =
   {
     'click input.radioEmailYes': function(evt)
     {
@@ -187,7 +187,7 @@
     }
   }
 
-  Template.emailRadioButtons.emailUserYes = function ()
+  Template.showSelector.emailUserYes = function ()
   {
     console.log("EmailUserYes")
     var emailDBCreated = Emails.find({userID: Meteor.userId()});
@@ -199,7 +199,7 @@
     return "checked";
   };
 
-  Template.emailRadioButtons.emailUserNo = function ()
+  Template.showSelector.emailUserNo = function ()
   {
     console.log("EmailUserNo")
     var emailDBCreated = Emails.find({userID: Meteor.userId()});
