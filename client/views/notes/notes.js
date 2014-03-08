@@ -57,7 +57,8 @@
       console.log("event addItem");
       var newFolder = document.getElementById("addFolder").value.trim();
       var newSection = document.getElementById("addSection").value.trim();
-      var newNote = document.getElementById("addNote").value.trim();
+      var note = document.getElementById("addNote");
+      var newNote = note.value.trim();
       var folderNameCount = FoldersDB.find( {folderName: newFolder}).count();
       if (folderNameCount > 0)
       {
@@ -81,6 +82,7 @@
       Session.set("sectionSelected", Session.get("sectionSelected"));
       Meteor.call("insert_note", newFolder, newSection, newNote, "checked", function(error, user_id) {
       });
+      note.value = '';
     }
   };
 
@@ -116,38 +118,43 @@
         Session.set("sectionToDelete", note.section);
       });
 
-      var Notes_foldersCount = Notes.find({folder: Session.get("folderToDelete")}, {folder:1}).count();
-      if (Notes_foldersCount == 1)
-      {
-        var deleteFoldersDBFolderID = FoldersDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
-        deleteFoldersDBFolderID.forEach(function (folderDB)
-        {
-          Meteor.call("remove_folderDB", folderDB._id, function(error, user_id) {
-          });
-        });
+      var confirmText = 'Are you sure you want to delete this entry?';
 
-        var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
-        deleteSectionDBFolderID.forEach(function (sectionDB)
-        {
-          Meteor.call("remove_sectionDB", sectionDB._id, function(error, user_id) {
-          });
-        });
-      }
-      else
+      if (confirm(confirmText))
       {
-        var Notes_foldersAndSectionsCount = Notes.find({folder: Session.get("folderToDelete"), section: Session.get("sectionToDelete")}, {_id:1}).count();
-        if (Notes_foldersAndSectionsCount == 1)
+        var Notes_foldersCount = Notes.find({folder: Session.get("folderToDelete")}, {folder:1}).count();
+        if (Notes_foldersCount == 1)
         {
-          var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete"), sectionName: Session.get("sectionToDelete")}, {_id:1});
+          var deleteFoldersDBFolderID = FoldersDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
+          deleteFoldersDBFolderID.forEach(function (folderDB)
+          {
+            Meteor.call("remove_folderDB", folderDB._id, function(error, user_id) {
+            });
+          });
+
+          var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete")}, {_id:1});
           deleteSectionDBFolderID.forEach(function (sectionDB)
           {
             Meteor.call("remove_sectionDB", sectionDB._id, function(error, user_id) {
             });
           });
         }
+        else
+        {
+          var Notes_foldersAndSectionsCount = Notes.find({folder: Session.get("folderToDelete"), section: Session.get("sectionToDelete")}, {_id:1}).count();
+          if (Notes_foldersAndSectionsCount == 1)
+          {
+            var deleteSectionDBFolderID = SectionsDB.find({folderName: Session.get("folderToDelete"), sectionName: Session.get("sectionToDelete")}, {_id:1});
+            deleteSectionDBFolderID.forEach(function (sectionDB)
+            {
+              Meteor.call("remove_sectionDB", sectionDB._id, function(error, user_id) {
+              });
+            });
+          }
+        }
+        Meteor.call("remove_note", itemID, function(error, user_id) {
+        })
       }
-      Meteor.call("remove_note", itemID, function(error, user_id) {
-      })
     },
 
     'click input.emailItem': function(evt)

@@ -320,8 +320,8 @@ textarea {
 }
 
 a {
-  /*color: #428bca;*/
-  color: #fff;
+  color: #428bca;
+  /*color: #fff;*/
   text-decoration: none;
 }
 
@@ -522,7 +522,8 @@ cite {
 }
 
 .text-muted {
-  color: #999999;
+  /*color: #999999;*/
+  color: #fff;
 }
 
 .text-primary {
@@ -2303,9 +2304,11 @@ fieldset[disabled] .btn {
 }
 
 .btn-default {
-  color: #333333;
+  /*color: #333333;
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #cccccc;*/
+  background-color: #1475b9;
+  color: #fff;
 }
 
 .btn-default:hover,
