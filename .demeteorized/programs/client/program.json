@@ -3,22 +3,31 @@
   "page": "app.html",
   "manifest": [
     {
-      "path": "ca2c95ea83dc1491f70162aa84c49bd2019af320.js",
+      "path": "8718f25ca3a6b1d53b52e52a803dab14255459e4.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/ca2c95ea83dc1491f70162aa84c49bd2019af320.js",
-      "size": 453842,
-      "hash": "ca2c95ea83dc1491f70162aa84c49bd2019af320"
+      "url": "/8718f25ca3a6b1d53b52e52a803dab14255459e4.js",
+      "size": 552845,
+      "hash": "8718f25ca3a6b1d53b52e52a803dab14255459e4"
     },
     {
-      "path": "016114b3218f9bca7aa02c28d19490186a5cf58f.css",
+      "path": "dbed636af5238d97383cd3d22bc52c358183c519.css",
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/016114b3218f9bca7aa02c28d19490186a5cf58f.css",
-      "size": 127756,
-      "hash": "016114b3218f9bca7aa02c28d19490186a5cf58f"
+      "url": "/dbed636af5238d97383cd3d22bc52c358183c519.css",
+      "size": 127964,
+      "hash": "dbed636af5238d97383cd3d22bc52c358183c519"
+    },
+    {
+      "path": "app/banner-bg.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/banner-bg.jpg",
+      "size": 99523,
+      "hash": "92fd5f1672530d0558c62ec6fdc4cef563f9e99c"
     },
     {
       "path": "app/favicon.ico",
@@ -28,6 +37,24 @@
       "url": "/favicon.ico",
       "size": 596,
       "hash": "2ba23cc16b6b341ae4d6dd04fddc38f7e852b742"
+    },
+    {
+      "path": "app/intro-bg.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/intro-bg.jpg",
+      "size": 125128,
+      "hash": "6ee5ca22ea86af21d45395f2509d2fa7f8481d51"
+    },
+    {
+      "path": "app/ipad.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/ipad.png",
+      "size": 721534,
+      "hash": "ee47892d8028179b582a7a19cfc390d2d34f251f"
     },
     {
       "path": "app/openingPicture copy.jpg",
@@ -93,9 +120,405 @@
       "hash": "04c3bf56d87a0828935bd6b4aee859995f321693"
     },
     {
+      "path": "app/fonts/glyphicons-halflings-regular.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/glyphicons-halflings-regular.eot",
+      "size": 20290,
+      "hash": "23799c0aa7b60fb1a66993d024f98ac105e74e93"
+    },
+    {
+      "path": "app/fonts/glyphicons-halflings-regular.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/glyphicons-halflings-regular.svg",
+      "size": 62850,
+      "hash": "ecee9033d9183117d8f59df0e7238e2b24002b24"
+    },
+    {
+      "path": "app/fonts/glyphicons-halflings-regular.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/glyphicons-halflings-regular.ttf",
+      "size": 41236,
+      "hash": "536d2b1b2f3462fb122df1922f2e232546f1b11d"
+    },
+    {
+      "path": "app/fonts/glyphicons-halflings-regular.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/glyphicons-halflings-regular.woff",
+      "size": 23292,
+      "hash": "c6ea7b1a5bb16b160cc9b8a02f6f6371b5ef7b73"
+    },
+    {
+      "path": "app/img/banner-bg.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/banner-bg.jpg",
+      "size": 99523,
+      "hash": "92fd5f1672530d0558c62ec6fdc4cef563f9e99c"
+    },
+    {
+      "path": "app/img/intro-bg.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/intro-bg.jpg",
+      "size": 125128,
+      "hash": "6ee5ca22ea86af21d45395f2509d2fa7f8481d51"
+    },
+    {
+      "path": "app/img/ipad.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/ipad.png",
+      "size": 721534,
+      "hash": "ee47892d8028179b582a7a19cfc390d2d34f251f"
+    },
+    {
+      "path": "app/img/lifeQuote.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/lifeQuote.jpg",
+      "size": 43607,
+      "hash": "a071cada85eed6c4ec3b18a1c00bfb950c36fa3b"
+    },
+    {
+      "path": "app/img/loveNotes.jpeg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/loveNotes.jpeg",
+      "size": 12015,
+      "hash": "ce6d53aed845ea09413aa8e51e9ef320f90bdba6"
+    },
+    {
+      "path": "app/img/loveNotes_circle.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/loveNotes_circle.png",
+      "size": 258996,
+      "hash": "581d3043fd90ee959fb21a60dc6e30208b21f9b2"
+    },
+    {
+      "path": "app/img/rememberPostIt.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/rememberPostIt.jpg",
+      "size": 399584,
+      "hash": "3c7bc7c1f1249b70711e6adb439ecc9941f662a2"
+    },
+    {
+      "path": "app/fonts/font-awesome/css/font-awesome.css",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/css/font-awesome.css",
+      "size": 21658,
+      "hash": "2a8eccf4ac288eb99979b62dcc1cc1036d8ff8fa"
+    },
+    {
+      "path": "app/fonts/font-awesome/css/font-awesome.min.css",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/css/font-awesome.min.css",
+      "size": 17780,
+      "hash": "c068cd49f2dd57e8162c1ad380fc63f0ec59cb1a"
+    },
+    {
+      "path": "app/fonts/font-awesome/fonts/FontAwesome.otf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/fonts/FontAwesome.otf",
+      "size": 62856,
+      "hash": "b5b4f9be85f91f10799e87a083da1d050f842734"
+    },
+    {
+      "path": "app/fonts/font-awesome/fonts/fontawesome-webfont.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/fonts/fontawesome-webfont.eot",
+      "size": 38205,
+      "hash": "7619748fe34c64fb157a57f6d4ef3678f63a8f5e"
+    },
+    {
+      "path": "app/fonts/font-awesome/fonts/fontawesome-webfont.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/fonts/fontawesome-webfont.svg",
+      "size": 202148,
+      "hash": "46fcc0194d75a0ddac0a038aee41b23456784814"
+    },
+    {
+      "path": "app/fonts/font-awesome/fonts/fontawesome-webfont.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/fonts/fontawesome-webfont.ttf",
+      "size": 80652,
+      "hash": "7f09c97f333917034ad08fa7295e916c9f72fd3f"
+    },
+    {
+      "path": "app/fonts/font-awesome/fonts/fontawesome-webfont.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/fonts/fontawesome-webfont.woff",
+      "size": 44432,
+      "hash": "04c3bf56d87a0828935bd6b4aee859995f321693"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/bordered-pulled.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/bordered-pulled.less",
+      "size": 330,
+      "hash": "0469b430cd1567145ba800b22537588be2d1934d"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/core.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/core.less",
+      "size": 270,
+      "hash": "8286f2139fdd27c974385354c2ec24d4ec3b2537"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/fixed-width.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/fixed-width.less",
+      "size": 119,
+      "hash": "ec0c24b97184dab86177660f486b8d08cd636c42"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/font-awesome.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/font-awesome.less",
+      "size": 405,
+      "hash": "7ffa0ce611a0c19dba8a981a4ce0bdbd945e3d7f"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/icons.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/icons.less",
+      "size": 26173,
+      "hash": "085b25011d25f80636e84271fb0ae72376bc9ba2"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/larger.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/larger.less",
+      "size": 370,
+      "hash": "e7119e82dc50540dbc3472bba7d74282815a7ecc"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/list.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/list.less",
+      "size": 375,
+      "hash": "b31f32ff393e3fa2f5c72d4a81c63871e61071ab"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/mixins.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/mixins.less",
+      "size": 699,
+      "hash": "c46690a1efdea1d83c43063ec43d46f289d9b140"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/path.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/path.less",
+      "size": 684,
+      "hash": "e152f9ef54b29bad851af8c6f8a77335a6e2c3f5"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/rotated-flipped.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/rotated-flipped.less",
+      "size": 367,
+      "hash": "6f63cbd44038b355cec327ce247008672f89cc3c"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/spinning.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/spinning.less",
+      "size": 765,
+      "hash": "57059d55b45c3ff7993acc57f3a579e056625fe0"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/stacked.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/stacked.less",
+      "size": 476,
+      "hash": "f044077bc8be1a989c245254e81eb084d52d29a7"
+    },
+    {
+      "path": "app/fonts/font-awesome/less/variables.less",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/less/variables.less",
+      "size": 10661,
+      "hash": "6b3e5dbe3807a9b2b4b09861eeb72f9a164d1155"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_bordered-pulled.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_bordered-pulled.scss",
+      "size": 332,
+      "hash": "e79168c54a9d1c1732bea399ead2c1b8f5489782"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_core.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_core.scss",
+      "size": 271,
+      "hash": "233f23fb2b73c388b520551e016eb907cbfbd3e5"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_fixed-width.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_fixed-width.scss",
+      "size": 120,
+      "hash": "224417ca266c657849afb2bbcb6dc455894ff387"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_icons.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_icons.scss",
+      "size": 26582,
+      "hash": "b57a6dcea2824d4243653b11a04bfac4166a43fb"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_larger.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_larger.scss",
+      "size": 375,
+      "hash": "940e1c5ebc690283bfaee92560cf15fabedbf6a9"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_list.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_list.scss",
+      "size": 378,
+      "hash": "4b53ee01513df8b9ce76442b2d8f1851613a435c"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_mixins.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_mixins.scss",
+      "size": 701,
+      "hash": "da6137cdd7cff9f898faf48990948c2657c234f4"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_path.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_path.scss",
+      "size": 695,
+      "hash": "37bee79eabb74a160d0d3c4aac28bbc0b56e68b6"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_rotated-flipped.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_rotated-flipped.scss",
+      "size": 412,
+      "hash": "f79b548129363bb0b3cd6cd24f6bfe59782559b0"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_spinning.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_spinning.scss",
+      "size": 766,
+      "hash": "f160ddc6dfa6caa52845aae4988bd469879011b0"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_stacked.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_stacked.scss",
+      "size": 482,
+      "hash": "cf6752ee609af36eb293a7197c88d31ecacbbc74"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/_variables.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/_variables.scss",
+      "size": 10723,
+      "hash": "93b2f5fce75f3c3f34f243522987af90502f4760"
+    },
+    {
+      "path": "app/fonts/font-awesome/scss/font-awesome.scss",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/fonts/font-awesome/scss/font-awesome.scss",
+      "size": 405,
+      "hash": "7ffa0ce611a0c19dba8a981a4ce0bdbd945e3d7f"
+    },
+    {
       "path": "app.html",
       "where": "internal",
-      "hash": "4d004563906e667dfde175b806b4c2d6664e6d34"
+      "hash": "31e5606eb97b841d22bb4f17a1b8c0afc3912432"
     }
   ]
 }

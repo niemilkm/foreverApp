@@ -13,6 +13,8 @@
       Meteor.call("update_emailVerification");
       console.log("updated email verification");
     }
+    Session.set("folderSelected", "folderAll");
+    Session.set("sectionSelected", "sectionAll");
   };
 
  Template.showSelector.eachFolder = function ()
@@ -197,10 +199,10 @@
   Template.showSelector.emailUserYes = function ()
   {
     console.log("EmailUserYes")
-    var emailDBCreated = Emails.find({userID: Meteor.userId()});
-    if (emailDBCreated != undefined)
+    var emailDBCreated = Emails.find({userID: Meteor.userId()}).fetch()[0];
+    if (emailDBCreated != undefined && emailDBCreated != null)
     {
-      if (!emailDBCreated.fetch()[0].emailUser)
+      if (!emailDBCreated.emailUser)
         return "";
     }
     return "checked";
@@ -209,10 +211,10 @@
   Template.showSelector.emailUserNo = function ()
   {
     console.log("EmailUserNo")
-    var emailDBCreated = Emails.find({userID: Meteor.userId()});
-    if (emailDBCreated != undefined)
+    var emailDBCreated = Emails.find({userID: Meteor.userId()}).fetch()[0];
+    if (emailDBCreated != undefined && emailDBCreated != null)
     {
-      if (!emailDBCreated.fetch()[0].emailUser)
+      if (!emailDBCreated.emailUser)
         return "checked";
     }
     else

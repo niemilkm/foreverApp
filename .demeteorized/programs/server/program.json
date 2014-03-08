@@ -179,14 +179,14 @@
       "sourceMapRoot": "packages"
     },
     {
-      "path": "packages/phantomjs.js",
-      "node_modules": "npm/phantomjs/main/node_modules",
-      "sourceMap": "packages/phantomjs.js.map",
+      "path": "packages/spiderable.js",
+      "sourceMap": "packages/spiderable.js.map",
       "sourceMapRoot": "packages"
     },
     {
-      "path": "packages/spiderable.js",
-      "sourceMap": "packages/spiderable.js.map",
+      "path": "packages/phantomjs.js",
+      "node_modules": "npm/phantomjs/main/node_modules",
+      "sourceMap": "packages/phantomjs.js.map",
       "sourceMapRoot": "packages"
     },
     {
