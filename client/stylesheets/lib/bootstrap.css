@@ -321,6 +321,7 @@ textarea {
 
 a {
   color: #428bca;
+  /*color: #fff;*/
   text-decoration: none;
 }
 
@@ -521,7 +522,8 @@ cite {
 }
 
 .text-muted {
-  color: #999999;
+  /*color: #999999;*/
+  color: #fff;
 }
 
 .text-primary {
@@ -2302,9 +2304,11 @@ fieldset[disabled] .btn {
 }
 
 .btn-default {
-  color: #333333;
+  /*color: #333333;
   background-color: #ffffff;
-  border-color: #cccccc;
+  border-color: #cccccc;*/
+  background-color: #1475b9;
+  color: #fff;
 }
 
 .btn-default:hover,
@@ -4707,7 +4711,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-brand {
-  color: #777777;
+  /*color: #777777;*/
+  color: #fff;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -4806,7 +4811,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  /*color: #999999;*/
+  color: #fff;
 }
 
 .navbar-inverse .navbar-brand:hover,

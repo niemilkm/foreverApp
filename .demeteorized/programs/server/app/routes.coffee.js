@@ -19,6 +19,9 @@ Router.map(function() {
       return ga("send", "pageview", "/notes");
     }
   });
+  this.route('bootstrapTheme', {
+    path: '/bootstrapTheme'
+  });
   return this.route('notFound', {
     path: '*',
     where: 'server',

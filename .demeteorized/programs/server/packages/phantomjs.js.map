@@ -1,0 +1,1 @@
+{"version":3,"file":"/packages/phantomjs.js","sources":["phantomjs/phantom.js"],"names":[],"mappings":";;;;;;;;;;;;;AAAA,yE;AACA,uD","sourcesContent":["var phantomjs = Npm.require('phantomjs-sun'), path = Npm.require('path');\nprocess.env.PATH += ':' + path.dirname(phantomjs.path);\n"]}

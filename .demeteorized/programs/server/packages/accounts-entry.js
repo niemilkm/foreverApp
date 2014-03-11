@@ -80,9 +80,6 @@ Router.map(function() {
     before: function() {
       Session.set('entryError', void 0);
       return Session.set('buttonText', 'in');
-    },
-    after: function() {
-      return ga("send", "pageview", "/sign-in");
     }
   });
   this.route("entrySignUp", {
@@ -90,18 +87,12 @@ Router.map(function() {
     before: function() {
       Session.set('entryError', void 0);
       return Session.set('buttonText', 'up');
-    },
-    after: function() {
-      return ga("send", "pageview", "/sign-up");
     }
   });
   this.route("entryForgotPassword", {
     path: "/forgot-password",
     before: function() {
       return Session.set('entryError', void 0);
-    },
-    after: function() {
-      return ga("send", "pageview", "/forgot-password");
     }
   });
   this.route('entrySignOut', {
@@ -114,9 +105,6 @@ Router.map(function() {
         });
       }
       return this.stop();
-    },
-    after: function() {
-      return ga("send", "pageview", "/sign-out");
     }
   });
   return this.route('entryResetPassword', {
@@ -124,9 +112,6 @@ Router.map(function() {
     before: function() {
       Session.set('entryError', void 0);
       return Session.set('resetToken', this.params.resetToken);
-    },
-    after: function() {
-      return ga("send", "pageview", "/reset-password");
     }
   });
 });

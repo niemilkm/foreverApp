@@ -1,10 +1,25 @@
 <template name="footer">
-  	<div class="container footer" >
-		<div class="col-md-2"></div>
-		<div class="col-md-10">
-			<footer style="text-align:right">
-				Produced by Kevin Niemiller - Cincinnati, Oh
-	  	</footer>
-	  </div>
-	</div>
+      <div class="row footerBackground">
+      	<div class="col-lg-1"></div>
+          <div class="col-lg-11">
+          	<br>
+              <ul class="list-inline">
+                  <li><a class="whiteText" href="/">Home</a>
+                  </li>
+                  <li class="footer-menu-divider">&sdot;</li>
+                  <li><a class="whiteText" href="mailto:niemilkm@gmail.com">Contact Us</a></li>
+                  <li class="footer-menu-divider">&sdot;</li>
+                	{{#if currentUser}}
+                    <li><a class="whiteText" href="/notes">My Notes</a></li>
+                    <li class="footer-menu-divider">&sdot;</li>
+	  								<li><a class="whiteText" href="/sign-out">Sign Out</a>
+	  							{{else}}
+                    <li><a class="whiteText" href="/sign-in">Sign In</a>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li><a class="whiteText" href="/sign-up">Sign Up</a></li>
+                  {{/if}}
+              </ul>
+              <p class="copyright text-muted small">Created by Kevin Niemiller - Cincinnati, OH</p><br>
+          </div>
+      </div>
 </template>

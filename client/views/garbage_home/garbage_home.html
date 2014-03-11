@@ -1,0 +1,41 @@
+<template name="garbage_home">
+	<div class="container home">
+  	<div class="col-md-2">
+  		{{#if currentUser}}
+  			<p><br><a href="/notes"><button type="button" class="btn btn-default get-started"><h6>My Notes</h6></button></a><br></p>
+  		{{else}}
+	  		<p><br><a href="/sign-up"><button type="button" class="btn btn-default get-started"><h6>Sign Up</h6></button></a><br><br>
+	  			<a href="/sign-in"><button type="button" class="btn btn-default get-started"><h6>Sign In</h6></button></a>
+	  		</p>
+	  	{{/if}}
+  	</div>
+  	<div class="col-md-8">
+  		<h1 class="get">Remember Note - where your notes live on</h1>
+  		<h4 class="text-info">How many times have you heard a life or motivational quote that you really liked and wanted to remember forever? How many conferences, events, lunch-n-learns have you been to where you really enjoyed the material that you were learning - so what did you do to remember this material - take notes? How many times have you returned to those notes and motivational quotes to re-read, re-learn, and remember the things that were so important to you back then? Probably never, right?
+  		</h4><br>
+  		<h1 class="get">Remember Note takes care of this problem!</h1>
+  		<h4 class="text-info">Simply add your notes you currently have into Remember Note, or the next time you are at a conference or lunch-n-learn simply enter your notes into Remember Note while attending the event. Do you have life and motivational quotes you love, perfect - enter these into Remember Note as well! <br><br>Once your notes have been entered, select your favorite ones (or all of them) by clicking the Email Checkbox. Once these boxes are checked, one of these notes will be picked at random and emailed to you once in the morning and once in the evening everyday so you can remember these notes forever!
+  		</h4><br>
+  		<h4 class="get" style="text-align:left">Examples:</h4>
+  			<h5 class="text-info">Folder: Idea Festival 2013<br>
+  			Section: Speaker 1's Name (Tererai Trent)<br>
+  			Note: It's not only about achieving your dreams but more importantly what comes out of your dreams.<br><br>
+
+  			Folder: Idea Festival 2013<br>
+  			Section: Speaker 2's Name (Jesse Sugarmann)<br>
+  			Note: Sometimes you just have to remove the dominant force of logic that stops you from doing something and just try it.<br><br>
+
+        Folder: Life Quotes<br>
+        Section: Ralph Waldo Emerson<br>
+        Note: Do not go where the path may lead, go instead where there is no path and leave a trail.<br><br>
+
+  			Folder: Meetup - Marketing<br>
+  			Section: 12DEC2013<br>
+  			Note: Pinterest is good for SEO because their brands rank in search algorithms - need to fill out the desciption though because this is how it is searched. Google looks for traction on social media (looks at mentions on social networks).<br><br><br>
+  		</h5>
+  	</div>
+  	<div class="col-md-2"></div>
+  </div>
+</template>
+
+
