@@ -3,13 +3,13 @@
   "page": "app.html",
   "manifest": [
     {
-      "path": "8718f25ca3a6b1d53b52e52a803dab14255459e4.js",
+      "path": "0b8bdce9a69713378a08fb6423d7abc8906bead1.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/8718f25ca3a6b1d53b52e52a803dab14255459e4.js",
-      "size": 552845,
-      "hash": "8718f25ca3a6b1d53b52e52a803dab14255459e4"
+      "url": "/0b8bdce9a69713378a08fb6423d7abc8906bead1.js",
+      "size": 552844,
+      "hash": "0b8bdce9a69713378a08fb6423d7abc8906bead1"
     },
     {
       "path": "dbed636af5238d97383cd3d22bc52c358183c519.css",
@@ -518,7 +518,7 @@
     {
       "path": "app.html",
       "where": "internal",
-      "hash": "31e5606eb97b841d22bb4f17a1b8c0afc3912432"
+      "hash": "d499838fb71d90ff9bfe4c55e744d9ebfa49f5c2"
     }
   ]
 }

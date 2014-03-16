@@ -44,7 +44,7 @@ Meteor.startup(function() {
         }
       });
     }).run();
-  }), 43200000);
+  }), 86400000);
   return Meteor.methods({
     update_emailVerification: function() {
       return Meteor.users.update({

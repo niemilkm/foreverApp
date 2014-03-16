@@ -22,7 +22,7 @@ Meteor.startup ->
 		        	subject: "Remember Note"
 		        	text: textSend + "\n\n\nwww.remembernote.com"
 	    ).run()
-  ), 43200000
+  ), 86400000
 
   Meteor.methods update_emailVerification: ->
 	  Meteor.users.update
